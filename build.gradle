@@ -4,3 +4,9 @@ plugins {
     id 'com.android.library' version '7.4.0' apply false
     id 'org.jetbrains.kotlin.android' version '1.7.21' apply false
 }
+
+ext {
+    coroutines = '1.6.0'
+    lifecycleVersion = '2.4.1'
+    roomVersion = '2.4.1'
+}
