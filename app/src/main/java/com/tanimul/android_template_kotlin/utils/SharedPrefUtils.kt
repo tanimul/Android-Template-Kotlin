@@ -2,7 +2,7 @@ package com.tanimul.android_template_kotlin.utils
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.tanimul.android_template_kotlin.AndroidTemplateApp.Companion.getInstance
+import com.tanimul.android_template_kotlin.app.AndroidTemplateApp.Companion.getInstance
 import com.tanimul.android_template_kotlin.utils.Constants.SharedPref.myPreferences
 
 class SharedPrefUtils {

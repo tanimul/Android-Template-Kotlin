@@ -9,10 +9,11 @@ import android.graphics.drawable.GradientDrawable
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.view.inputmethod.InputMethodManager
+import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
-import com.tanimul.android_template_kotlin.AndroidTemplateApp.Companion.getInstance
+import com.tanimul.android_template_kotlin.app.AndroidTemplateApp.Companion.getInstance
 import com.tanimul.android_template_kotlin.R
 import kotlin.math.roundToInt
 

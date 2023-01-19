@@ -1,4 +1,4 @@
-package com.tanimul.android_template_kotlin
+package com.tanimul.android_template_kotlin.app
 
 import android.app.Application
 import android.app.Dialog
@@ -22,7 +22,7 @@ class AndroidTemplateApp : Application() {
     companion object {
         private lateinit var instance: AndroidTemplateApp
         var sharedPrefUtils: SharedPrefUtils? = null
-        var noInternetDialog: Dialog? = null
+        var noDialog: Dialog? = null
         var appTheme: Int = 0
         fun getInstance(): AndroidTemplateApp {
             return instance

@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
 import android.view.WindowManager
 import android.widget.ImageView
 import androidx.annotation.ColorInt
@@ -15,11 +16,11 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.graphics.drawable.DrawableCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.tanimul.android_template_kotlin.AndroidTemplateApp
-import com.tanimul.android_template_kotlin.AndroidTemplateApp.Companion.getInstance
-import com.tanimul.android_template_kotlin.AndroidTemplateApp.Companion.noInternetDialog
+import com.tanimul.android_template_kotlin.app.AndroidTemplateApp
+import com.tanimul.android_template_kotlin.app.AndroidTemplateApp.Companion.getInstance
 import com.tanimul.android_template_kotlin.R
-import com.tanimul.android_template_kotlin.databinding.LayoutNoInternetBinding
+import com.tanimul.android_template_kotlin.app.AndroidTemplateApp.Companion.noDialog
+import com.tanimul.android_template_kotlin.databinding.LayoutLottieBinding
 import com.tanimul.android_template_kotlin.utils.SharedPrefUtils
 
 inline fun <reified T : Any> newIntent(context: Context): Intent = Intent(context, T::class.java)
@@ -85,39 +86,51 @@ fun ImageView.loadImageFromDrawable(@DrawableRes aPlaceHolderImage: Int) {
 }
 
 enum class JsonFileCode {
-    NO_INTERNET, LOADER
+    NO_INTERNET, LOADER, UNDER_DEVELOPMENT
 }
 
 fun Activity.openLottieDialog(
-    jsonFileCode: JsonFileCode = JsonFileCode.NO_INTERNET, onLottieClick: () -> Unit
+    jsonFileCode: JsonFileCode, onLottieClick: () -> Unit
 ) {
+    Log.d("openLottieDialog", "openLottieDialog: $jsonFileCode")
     try {
         val jsonFile: String = when (jsonFileCode) {
             JsonFileCode.NO_INTERNET -> "lottie/no_internet.json"
-            JsonFileCode.LOADER -> "lottie/no_data.json"
+            JsonFileCode.LOADER -> "lottie/loader.json"
+            JsonFileCode.UNDER_DEVELOPMENT -> "lottie/under_development.json"
         }
-        val dialogLayout = LayoutNoInternetBinding.inflate(this.layoutInflater)
+        val dialogLayout = LayoutLottieBinding.inflate(this.layoutInflater)
 
-        if (noInternetDialog == null) {
-            noInternetDialog = Dialog(this, R.style.FullScreenDialog)
-            noInternetDialog?.setContentView(dialogLayout.root)
-            noInternetDialog?.setCanceledOnTouchOutside(false)
-            noInternetDialog?.setCancelable(false)
-            noInternetDialog?.window?.setLayout(
+        if (noDialog == null) {
+            noDialog = Dialog(this, R.style.FullScreenDialog)
+            noDialog?.setContentView(dialogLayout.root)
+            noDialog?.setCanceledOnTouchOutside(false)
+            noDialog?.setCancelable(false)
+            noDialog?.window?.setLayout(
                 WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT
             )
-            dialogLayout.parentNoInternet.onClick {
+
+        dialogLayout.btnTapRetry.onClick {
+            if (!isNetworkAvailable()) {
+                snackBarError(getInstance().getString(R.string.error_no_internet))
+                return@onClick
+            }
+            noDialog?.dismiss()
+            onLottieClick()
+        }
+
+            dialogLayout.parentLottie.onClick {
                 if (!isNetworkAvailable()) {
                     snackBarError(getInstance().getString(R.string.error_no_internet))
                     return@onClick
                 }
-                noInternetDialog?.dismiss()
+                noDialog?.dismiss()
                 onLottieClick()
             }
         }
-        dialogLayout.lottieNoInternet.setAnimation(jsonFile)
-        if (!this.isFinishing && !noInternetDialog!!.isShowing) {
-            noInternetDialog?.show()
+        dialogLayout.lottie.setAnimation(jsonFile)
+        if (!this.isFinishing && !noDialog!!.isShowing) {
+            noDialog?.show()
         }
     } catch (e: Exception) {
         e.printStackTrace()

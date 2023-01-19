@@ -1,7 +1,7 @@
 package com.tanimul.android_template_kotlin.utils.extentions
 
 import android.util.Log
-import com.tanimul.android_template_kotlin.AndroidTemplateApp.Companion.getInstance
+import com.tanimul.android_template_kotlin.app.AndroidTemplateApp.Companion.getInstance
 import com.tanimul.android_template_kotlin.BuildConfig
 import com.tanimul.android_template_kotlin.R
 import okhttp3.ResponseBody

@@ -8,13 +8,11 @@ import android.graphics.Bitmap
 import android.graphics.Color
 import android.net.NetworkCapabilities
 import android.net.Uri
-import android.os.Build
 import android.provider.MediaStore
 import android.provider.Settings
 import android.text.Spanned
 import android.view.View
 import android.widget.TextView
-import androidx.annotation.RequiresApi
 import androidx.annotation.RequiresPermission
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.HtmlCompat
@@ -22,7 +20,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.snackbar.Snackbar
-import com.tanimul.android_template_kotlin.AndroidTemplateApp.Companion.getInstance
+import com.tanimul.android_template_kotlin.app.AndroidTemplateApp.Companion.getInstance
 import com.tanimul.android_template_kotlin.R
 import org.json.JSONObject
 import java.io.ByteArrayOutputStream
@@ -35,8 +33,18 @@ inline fun <T : View> T.onClick(crossinline func: T.() -> Unit) = setOnClickList
 
 @RequiresPermission(Manifest.permission.ACCESS_NETWORK_STATE)
 fun isNetworkAvailable(): Boolean {
-    val info = getInstance().getConnectivityManager().activeNetworkInfo
-    return info != null && info.isConnected
+    val info = getInstance().getConnectivityManager().getNetworkCapabilities(getInstance().getConnectivityManager().activeNetwork)
+    info.also {
+        if (it != null) {
+            if (it.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
+                return true
+            } else if (it.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
+                return true
+            }
+        }
+    }
+
+    return false
 }
 
 fun String.checkIsEmpty(): Boolean =
