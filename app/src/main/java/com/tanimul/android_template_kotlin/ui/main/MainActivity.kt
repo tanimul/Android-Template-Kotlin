@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.tanimul.android_template_kotlin.R
 import com.tanimul.android_template_kotlin.adapter.UserListAdapter
+import com.tanimul.android_template_kotlin.data.models.response.UserModel
 import com.tanimul.android_template_kotlin.data.models.response.UserResponse
 import com.tanimul.android_template_kotlin.databinding.ActivityMainBinding
 import com.tanimul.android_template_kotlin.ui.base.AppBaseActivity
@@ -20,12 +21,13 @@ import com.tanimul.android_template_kotlin.viewmodel.UserListViewModel
 class MainActivity : AppBaseActivity() {
     private val TAG = "MainActivity"
     private lateinit var binding: ActivityMainBinding
-    private lateinit var userList: ArrayList<UserResponse>
+    private lateinit var userList: ArrayList<UserModel>
     lateinit var usersViewModel: UserListViewModel
     lateinit var userListAdapter: UserListAdapter
-    var per_page = 20
+    var per_page = 5
     var since = 0
     private var onRetry: (() -> Unit)? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -44,6 +46,19 @@ class MainActivity : AppBaseActivity() {
         usersViewModel = ViewModelProvider(
             this, ViewModelProvider.AndroidViewModelFactory.getInstance(application)
         )[UserListViewModel::class.java]
+
+
+        usersViewModel.showAllUser.observe(
+            this
+        ) {
+            showProgress(false)
+            Log.d(TAG, "onCreate: ${it.size}")
+            userList.clear()
+            userList.addAll(it)
+            userListAdapter.notifyDataSetChanged()
+        }
+
+
 
         loadApis()
 
@@ -80,11 +95,5 @@ class MainActivity : AppBaseActivity() {
     private fun getData(since: Int, per_page: Int) {
         showProgress(true)
         usersViewModel.getUserList(since, per_page)
-        usersViewModel.users.observe(this) {
-            Log.d(TAG, "getData: ${it?.size}")
-            it?.let { it1 -> userList.addAll(it1) }
-            userListAdapter.notifyDataSetChanged()
-            showProgress(false)
-        }
     }
 }

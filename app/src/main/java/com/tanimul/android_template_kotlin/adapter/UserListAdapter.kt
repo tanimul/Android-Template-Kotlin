@@ -5,12 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.tanimul.android_template_kotlin.data.models.response.UserResponse
+import com.tanimul.android_template_kotlin.data.models.response.UserModel
 import com.tanimul.android_template_kotlin.databinding.LayoutUserBinding
 import com.tanimul.android_template_kotlin.utils.extentions.loadImageFromUrl
 
 class UserListAdapter(
-    private val mUserItems: List<UserResponse>, private val onItemClicked: (UserResponse) -> Unit
+    private val mUserItems: List<UserModel>, private val onItemClicked: (UserModel) -> Unit
 ) : RecyclerView.Adapter<UserListAdapter.UserListViewHolder>() {
     private val TAG = "CardListAdapter"
 
@@ -31,8 +31,8 @@ class UserListAdapter(
         with(holder.binding) {
             with(mUserItems[position]) {
                 tvName.text = login
-                tvId.text = nodeId.toString()
-                avatarUrl?.let { ivIcon.loadImageFromUrl(it) }
+                tvId.text = node_id
+                avatar_url?.let { ivIcon.loadImageFromUrl(it) }
 
             }
         }
