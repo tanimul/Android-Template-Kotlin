@@ -1,6 +1,9 @@
 package com.tanimul.android_template_kotlin.data.models.response
 
 import com.google.gson.annotations.SerializedName
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import java.io.Serializable
 
 data class UserResponse(
     @SerializedName("login") var login: String? = null,
@@ -22,3 +25,13 @@ data class UserResponse(
     @SerializedName("type") var type: String? = null,
     @SerializedName("site_admin") var siteAdmin: Boolean? = null
 ) : BaseResponse()
+
+@Entity(tableName = "User")
+data class UserModel(
+    val avatar_url: String?,
+    val node_id: String?,
+    val login: String?
+) : Serializable {
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0
+}
