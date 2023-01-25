@@ -11,7 +11,7 @@ import com.tanimul.android_template_kotlin.data.models.response.UserModel
 interface UserDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addUser(userModel: UserModel)
+    fun addUsers(users: List<UserModel>)
 
     @Query("SELECT * FROM User ORDER BY id ASC")
     fun showUserList(): LiveData<List<UserModel>>

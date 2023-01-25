@@ -2,13 +2,11 @@ package com.tanimul.android_template_kotlin.ui.main
 
 import android.os.Bundle
 import android.util.Log
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.tanimul.android_template_kotlin.R
 import com.tanimul.android_template_kotlin.adapter.UserListAdapter
 import com.tanimul.android_template_kotlin.data.models.response.UserModel
-import com.tanimul.android_template_kotlin.data.models.response.UserResponse
 import com.tanimul.android_template_kotlin.databinding.ActivityMainBinding
 import com.tanimul.android_template_kotlin.ui.base.AppBaseActivity
 import com.tanimul.android_template_kotlin.utils.extentions.JsonFileCode
@@ -16,17 +14,19 @@ import com.tanimul.android_template_kotlin.utils.extentions.isNetworkAvailable
 import com.tanimul.android_template_kotlin.utils.extentions.openLottieDialog
 import com.tanimul.android_template_kotlin.utils.extentions.toast
 import com.tanimul.android_template_kotlin.viewmodel.UserListViewModel
-
+import androidx.activity.viewModels
 
 class MainActivity : AppBaseActivity() {
-    private val TAG = "MainActivity"
+    companion object {
+        private const val TAG = "MainActivity"
+    }
+
     private lateinit var binding: ActivityMainBinding
     private lateinit var userList: ArrayList<UserModel>
-    lateinit var usersViewModel: UserListViewModel
+    private val usersViewModel: UserListViewModel by viewModels()
     lateinit var userListAdapter: UserListAdapter
-    var per_page = 5
+    var perPage = 20
     var since = 0
-    private var onRetry: (() -> Unit)? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,15 +38,13 @@ class MainActivity : AppBaseActivity() {
 
         userList = ArrayList()
         userListAdapter = UserListAdapter(userList) {
-            toast(it.login.toString())
+            toast("Clicked User: ${it.login}")
         }
+
         binding.rvUsers.layoutManager = LinearLayoutManager(this)
         binding.rvUsers.adapter = userListAdapter
 
-        usersViewModel = ViewModelProvider(
-            this, ViewModelProvider.AndroidViewModelFactory.getInstance(application)
-        )[UserListViewModel::class.java]
-
+        loadApis()
 
         usersViewModel.showAllUser.observe(
             this
@@ -58,10 +56,6 @@ class MainActivity : AppBaseActivity() {
             userListAdapter.notifyDataSetChanged()
         }
 
-
-
-        loadApis()
-
         binding.rvUsers.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
@@ -71,7 +65,7 @@ class MainActivity : AppBaseActivity() {
                 super.onScrolled(recyclerView, dx, dy)
                 val linearLayoutManager = recyclerView.layoutManager as LinearLayoutManager?
                 if (linearLayoutManager != null && linearLayoutManager.findLastCompletelyVisibleItemPosition() == userList.size - 1) {
-                    since += per_page
+                    since += perPage
                     loadApis()
                 }
             }
@@ -82,7 +76,7 @@ class MainActivity : AppBaseActivity() {
     private fun loadApis() {
         Log.d(TAG, "loadApis: ")
         if (isNetworkAvailable()) {
-            getData(since, per_page)
+            getData(since, perPage)
         } else {
             openLottieDialog(JsonFileCode.NO_INTERNET) {
                 loadApis()
