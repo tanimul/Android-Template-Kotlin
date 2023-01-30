@@ -15,6 +15,9 @@ import com.tanimul.android_template_kotlin.utils.extentions.openLottieDialog
 import com.tanimul.android_template_kotlin.utils.extentions.toast
 import com.tanimul.android_template_kotlin.viewmodel.UserListViewModel
 import androidx.activity.viewModels
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import timber.log.Timber
 
 class MainActivity : AppBaseActivity() {
@@ -47,15 +50,16 @@ class MainActivity : AppBaseActivity() {
 
         loadApis()
 
-        usersViewModel.showAllUser.observe(
-            this
-        ) {
+        lifecycleScope.launch {
+            usersViewModel.showAllUser.collect{
             showProgress(false)
             Timber.d("user size: ${it.size}")
             userList.clear()
             userList.addAll(it)
             userListAdapter.notifyDataSetChanged()
+            }
         }
+
 
         binding.rvUsers.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
