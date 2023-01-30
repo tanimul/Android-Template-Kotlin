@@ -8,6 +8,7 @@ import com.tanimul.android_template_kotlin.data.models.response.UserModel
 import com.tanimul.android_template_kotlin.data.repository.UserListRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 class UserListViewModel(application: Application) : AndroidViewModel(application) {
     private val TAG: String = "UserListViewModel"

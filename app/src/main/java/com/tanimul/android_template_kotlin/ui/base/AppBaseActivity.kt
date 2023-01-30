@@ -11,7 +11,9 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.tanimul.android_template_kotlin.BuildConfig
 import com.tanimul.android_template_kotlin.R
+import timber.log.Timber
 
 open class AppBaseActivity : AppCompatActivity() {
 
@@ -30,6 +32,12 @@ open class AppBaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // initialize timber in application class
+        if(BuildConfig.DEBUG){
+            Timber.plant(Timber.DebugTree())
+        }
+
         if (progressDialog == null) {
             progressDialog = Dialog(this)
             progressDialog?.window?.setBackgroundDrawable(ColorDrawable(0))
@@ -37,7 +45,7 @@ open class AppBaseActivity : AppCompatActivity() {
         }
 
     }
-    
+
 
     fun showProgress(show: Boolean) {
         when {
@@ -58,13 +66,13 @@ open class AppBaseActivity : AppCompatActivity() {
     }
 
     override fun onStart() {
-        Log.d(TAG, "onStart Called")
+        Timber.d("onStart Called")
         super.onStart()
     }
 
     override fun onResume() {
         super.onResume()
-        Log.d(TAG, "onResume Called")
+        Timber.d("onResume Called")
     }
 
 }

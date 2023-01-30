@@ -7,6 +7,7 @@ import com.tanimul.android_template_kotlin.data.models.response.UserModel
 import com.tanimul.android_template_kotlin.data.models.response.UserResponse
 import com.tanimul.android_template_kotlin.network.ApiClient
 import com.tanimul.android_template_kotlin.network.ApiInterface
+import timber.log.Timber
 
 class UserListRepository(private val userDao: UserDao) {
     private val TAG: String = "UserListRepository"
@@ -20,7 +21,7 @@ class UserListRepository(private val userDao: UserDao) {
 
 
     private fun addUserList(userList: List<UserResponse>) {
-        Log.d(TAG, "addUserList: ${userList.size}")
+        Timber.d( "addUserList: ${userList.size}")
 
         userDao.addUsers(userList.map { data ->
             UserModel(

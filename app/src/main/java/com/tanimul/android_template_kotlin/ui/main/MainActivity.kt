@@ -15,6 +15,7 @@ import com.tanimul.android_template_kotlin.utils.extentions.openLottieDialog
 import com.tanimul.android_template_kotlin.utils.extentions.toast
 import com.tanimul.android_template_kotlin.viewmodel.UserListViewModel
 import androidx.activity.viewModels
+import timber.log.Timber
 
 class MainActivity : AppBaseActivity() {
     companion object {
@@ -50,7 +51,7 @@ class MainActivity : AppBaseActivity() {
             this
         ) {
             showProgress(false)
-            Log.d(TAG, "onCreate: ${it.size}")
+            Timber.d("user size: ${it.size}")
             userList.clear()
             userList.addAll(it)
             userListAdapter.notifyDataSetChanged()
@@ -74,7 +75,7 @@ class MainActivity : AppBaseActivity() {
     }
 
     private fun loadApis() {
-        Log.d(TAG, "loadApis: ")
+        Timber.d( "loadApis: ")
         if (isNetworkAvailable()) {
             getData(since, perPage)
         } else {
