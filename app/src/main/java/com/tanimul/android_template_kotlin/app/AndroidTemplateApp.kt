@@ -5,7 +5,9 @@ import android.app.Dialog
 import com.tanimul.android_template_kotlin.utils.Constants
 import com.tanimul.android_template_kotlin.utils.SharedPrefUtils
 import com.tanimul.android_template_kotlin.utils.extentions.getSharedPrefInstance
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class AndroidTemplateApp : Application() {
 
 

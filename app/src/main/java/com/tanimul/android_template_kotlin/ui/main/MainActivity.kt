@@ -1,7 +1,6 @@
 package com.tanimul.android_template_kotlin.ui.main
 
 import android.os.Bundle
-import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.tanimul.android_template_kotlin.R
@@ -16,10 +15,11 @@ import com.tanimul.android_template_kotlin.utils.extentions.toast
 import com.tanimul.android_template_kotlin.viewmodel.UserListViewModel
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.flow.collect
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
+@AndroidEntryPoint
 class MainActivity : AppBaseActivity() {
     companion object {
         private const val TAG = "MainActivity"

@@ -11,24 +11,4 @@ abstract class TemplateDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
 
-    companion object {
-        @Volatile
-        private var instance: TemplateDatabase? = null
-
-        fun getDatabase(context: Context): TemplateDatabase {
-            if (instance == null) {
-
-                synchronized(this) {
-                    instance = Room.databaseBuilder(
-                        context, TemplateDatabase::class.java,
-                        "Template")
-                        .fallbackToDestructiveMigration()
-                        .build()
-                }
-            }
-            return instance!!
-
-        }
-    }
-
 }

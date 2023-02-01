@@ -1,28 +1,26 @@
 package com.tanimul.android_template_kotlin.viewmodel
 
 
-import android.app.Application
 import androidx.lifecycle.*
-import com.tanimul.android_template_kotlin.data.database.TemplateDatabase
 import com.tanimul.android_template_kotlin.data.models.response.UserModel
 import com.tanimul.android_template_kotlin.data.repository.UserListRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import timber.log.Timber
+import javax.inject.Inject
 
-class UserListViewModel(application: Application) : AndroidViewModel(application) {
+@HiltViewModel
+class UserListViewModel @Inject constructor(private  val  repository: UserListRepository) : ViewModel() {
     private val TAG: String = "UserListViewModel"
-    private val repository: UserListRepository
-    val showAllUser= MutableStateFlow<List<UserModel>>(emptyList())
+    private var _userStateFlow: MutableStateFlow<List<UserModel>> = MutableStateFlow(emptyList())
+    val showAllUser: StateFlow<List<UserModel>> = _userStateFlow
     init {
-        val userDao = TemplateDatabase.getDatabase(application).userDao()
-        repository = UserListRepository(userDao)
 
         viewModelScope.launch{
             repository.showAllUser.collect{
-                showAllUser.value=it
+                _userStateFlow.value=it
             }
         }
     }
