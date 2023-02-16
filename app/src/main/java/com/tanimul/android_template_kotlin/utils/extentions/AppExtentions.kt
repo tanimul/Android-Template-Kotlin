@@ -21,7 +21,6 @@ import com.tanimul.android_template_kotlin.app.AndroidTemplateApp.Companion.getI
 import com.tanimul.android_template_kotlin.R
 import com.tanimul.android_template_kotlin.app.AndroidTemplateApp.Companion.noDialog
 import com.tanimul.android_template_kotlin.databinding.LayoutLottieBinding
-import com.tanimul.android_template_kotlin.utils.SharedPrefUtils
 
 inline fun <reified T : Any> newIntent(context: Context): Intent = Intent(context, T::class.java)
 
@@ -38,15 +37,6 @@ inline fun <reified T : Any> Activity.launchActivity(
     val intent = newIntent<T>(this)
     intent.init()
     startActivityForResult(intent, requestCode, options)
-}
-
-fun getSharedPrefInstance(): SharedPrefUtils {
-    return if (AndroidTemplateApp.sharedPrefUtils == null) {
-        AndroidTemplateApp.sharedPrefUtils = SharedPrefUtils()
-        AndroidTemplateApp.sharedPrefUtils!!
-    } else {
-        AndroidTemplateApp.sharedPrefUtils!!
-    }
 }
 
 internal fun Drawable.tint(@ColorInt color: Int): Drawable {

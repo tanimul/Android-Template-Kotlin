@@ -5,7 +5,7 @@ object Constants {
         const val BASE_URL = "https://api.github.com/"
     }
 
-    object SharedPref {
+    object DataStorePref {
         const val myPreferences = "MyPreferences"
         const val KEY_THEME = "selected_theme"
     }
