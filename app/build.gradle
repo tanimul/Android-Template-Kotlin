@@ -94,4 +94,7 @@ dependencies {
     //hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+
+    // Preference DataStore
+    implementation "androidx.datastore:datastore-preferences:1.0.0-alpha04"
 }
