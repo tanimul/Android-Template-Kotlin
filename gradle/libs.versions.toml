@@ -1,0 +1,91 @@
+[versions]
+agp = "8.5.2"
+banner = "2.2.2"
+kotlin = "2.1.10"
+coreKtx = "1.15.0"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+appcompat = "1.7.0"
+material = "1.12.0"
+activity = "1.10.0"
+constraintlayout = "2.2.0"
+
+mockitoCore = "4.7.0"
+pagingRxjava3 = "3.3.5"
+rxandroid = "3.0.0"
+rxjava3RetrofitAdapter = "3.0.0"
+timber = "5.0.1"
+hilt = "2.52"
+hilt_navigation_fragment = "1.2.0"
+datastorePreferences = "1.0.0-alpha04"
+ksp = "2.1.10-1.0.29"
+room = "2.6.1"
+retrofit = "2.9.0"
+lifecycle = "2.8.7"
+navigation = "2.8.6"
+coroutines = "1.7.3"
+glide = "4.15.1"
+navSafeArgs = "2.8.6"
+
+lottie = "6.6.2"
+shimmer = "0.5.0"
+logging_interceptor = "4.12.0"
+fragment_ktx = "1.8.5"
+gson = "2.10.1"
+circleimageview="3.1.0"
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-paging-rxjava3 = { module = "androidx.paging:paging-rxjava3", version.ref = "pagingRxjava3" }
+banner = { module = "io.github.youth5201314:banner", version.ref = "banner" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+mockito-android = { module = "org.mockito:mockito-android", version.ref = "mockitoCore" }
+mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockitoCore" }
+rxandroid = { module = "io.reactivex.rxjava3:rxandroid", version.ref = "rxandroid" }
+rxjava3-retrofit-adapter = { module = "com.github.akarnokd:rxjava3-retrofit-adapter", version.ref = "rxjava3RetrofitAdapter" }
+timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
+hilt_android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt_android_compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+hilt_navigation_fragment = { group = "androidx.hilt", name = "hilt-navigation-fragment", version.ref = "hilt_navigation_fragment" }
+androidx_fragment_ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragment_ktx" }
+lifecycle_viewmodel_ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+lifecycle_livedata_ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle" }
+lifecycle_common_java8 = { group = "androidx.lifecycle", name = "lifecycle-common-java8", version.ref = "lifecycle" }
+navigation_fragment_ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigation" }
+navigation_ui_ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation" }
+coroutines_core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
+coroutines_android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+circleimageview = { group = "de.hdodenhof", name = "circleimageview", version.ref = "circleimageview" }
+glide_library = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
+retrofit_core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit_converter_gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+okhttp_logging_interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "logging_interceptor" }
+paging_runtime_ktx = { group = "androidx.paging", name = "paging-runtime-ktx", version.ref = "pagingRxjava3" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
+androidx-room-testing = { module = "androidx.room:room-testing", version.ref = "room" }
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
+
+lottie = { module = "com.airbnb.android:lottie", version.ref = "lottie" }
+shimmer = { module = "com.facebook.shimmer:shimmer", version.ref = "shimmer" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+
+google-devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+google-dagger-hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+navSafeArgs = { id = "androidx.navigation.safeargs", version.ref = "navSafeArgs" }
+kotlin-parcelize = { id = "kotlin-parcelize" }
