@@ -4,11 +4,13 @@ designed to save time by setting up a well-structured project with the latest be
 
 # How to use
 **1. Clone the Repository**
-   - Just clone it and change the project information to get the most common best practice design.
+   
+   Just clone it and change the project information to get the most common best practice design.
    ```kotlin
-   git clone https://github.com/your-username/Android-Template-Kotlin.git
+   git clone https://github.com/tanimul/Android-Template-Kotlin
    ```
-   - Or simply [![Use this template](https://img.shields.io/badge/-Use%20this%20template-brightgreen)](https://github.com/Tanimul/Android-Template-Kotlin/generate) use the button below to create a new repository from this template.
+   
+   Or simply [![Use this template](https://img.shields.io/badge/-Use%20this%20template-brightgreen)](https://github.com/Tanimul/Android-Template-Kotlin/generate) use the button below to create a new repository from this template.
 
 **2. Update Project Information**
    - Change **App ID** in `build.gradle.kts`
@@ -16,7 +18,8 @@ designed to save time by setting up a well-structured project with the latest be
    - Modify **strings.xml** for custom app details
 
 **3. Build & Run**
-   - Open the project in **Android Studio**, sync dependencies, and run the app!
+     
+   Open the project in **Android Studio**, sync dependencies, and run the app!
 
 # Why Use This Template?
 - Pre-configured MVVM Architecture with Repository Pattern
