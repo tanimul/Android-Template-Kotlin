@@ -106,4 +106,7 @@ dependencies {
     // Data storage and preferences
     implementation(libs.androidx.datastore.preferences)
 
+    // Avatar image generator from name
+    implementation (libs.avatarx)
+
 }

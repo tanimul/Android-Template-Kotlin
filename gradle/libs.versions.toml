@@ -34,11 +34,13 @@ logging_interceptor = "4.12.0"
 fragment_ktx = "1.8.5"
 gson = "2.10.1"
 circleimageview="3.1.0"
+avatarx = "1.0.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-paging-rxjava3 = { module = "androidx.paging:paging-rxjava3", version.ref = "pagingRxjava3" }
 banner = { module = "io.github.youth5201314:banner", version.ref = "banner" }
+avatarx = { module = "com.github.tanimul:AvatarX", version.ref = "avatarx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
