@@ -6,8 +6,8 @@
     <string name="error_no_internet">No Internet Connection</string>
     <string name="error_something_went_wrong">Something went wrong</string>
     <string name="tap_to_retry">Tap to Retry</string>
-    <string name="name">Name</string>
-    <string name="id">id</string>
-    <string name="github_user_list">Github User List</string>
+
+    <string name="registered_users">Registered Users</string>
+    <string name="img_description">this is an imageView</string>
 
 </resources>

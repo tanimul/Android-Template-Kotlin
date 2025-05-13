@@ -7,7 +7,7 @@ designed to save time by setting up a well-structured project with the latest be
    
    Just clone it and change the project information to get the most common best practice design.
    ```kotlin
-   git clone https://github.com/tanimul/Android-Template-Kotlin
+   git clone https://github.com/tanimul/A ndroid-Template-Kotlin
    ```
    
    Or simply [![Use this template](https://img.shields.io/badge/-Use%20this%20template-brightgreen)](https://github.com/Tanimul/Android-Template-Kotlin/generate) use the button below to create a new repository from this template.
