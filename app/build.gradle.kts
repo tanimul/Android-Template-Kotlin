@@ -109,4 +109,9 @@ dependencies {
     // Avatar image generator from name
     implementation (libs.avatarx)
 
+    // Paging
+    implementation(libs.androidx.paging.runtime)
+    implementation(libs.androidx.paging.rxjava3)
+    implementation (libs.rxandroid)
+    implementation (libs.rxjava3.retrofit.adapter)
 }

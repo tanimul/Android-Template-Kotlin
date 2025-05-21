@@ -12,13 +12,13 @@ activity = "1.10.0"
 constraintlayout = "2.2.0"
 
 mockitoCore = "4.7.0"
-pagingRxjava3 = "3.3.5"
+paging = "3.3.5"
 rxandroid = "3.0.0"
 rxjava3RetrofitAdapter = "3.0.0"
 timber = "5.0.1"
 hilt = "2.52"
 hilt_navigation_fragment = "1.2.0"
-datastorePreferences = "1.0.0-alpha04"
+datastorePreferences = "1.1.1"
 ksp = "2.1.10-1.0.29"
 room = "2.6.1"
 retrofit = "2.9.0"
@@ -38,7 +38,8 @@ avatarx = "1.0.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-androidx-paging-rxjava3 = { module = "androidx.paging:paging-rxjava3", version.ref = "pagingRxjava3" }
+androidx-paging-runtime = { module = "androidx.paging:paging-runtime", version.ref = "paging" }
+androidx-paging-rxjava3 = { module = "androidx.paging:paging-rxjava3", version.ref = "paging" }
 banner = { module = "io.github.youth5201314:banner", version.ref = "banner" }
 avatarx = { module = "com.github.tanimul:AvatarX", version.ref = "avatarx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -73,7 +74,6 @@ glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = 
 retrofit_core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit_converter_gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
 okhttp_logging_interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "logging_interceptor" }
-paging_runtime_ktx = { group = "androidx.paging", name = "paging-runtime-ktx", version.ref = "pagingRxjava3" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 androidx-room-testing = { module = "androidx.room:room-testing", version.ref = "room" }
