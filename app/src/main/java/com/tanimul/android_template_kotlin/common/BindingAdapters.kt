@@ -1,5 +1,6 @@
 package com.tanimul.android_template_kotlin.common
 
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
@@ -13,7 +14,7 @@ import java.util.Locale
 @BindingAdapter("formattedDateTime")
 fun TextView.setFormattedDateTime(date: Date?) {
     date?.let {
-        val formatted = SimpleDateFormat("ddMMM yyyy, hh.mm a", Locale.getDefault()).format(it)
+        val formatted = SimpleDateFormat("dd MMM yyyy, hh.mm a", Locale.getDefault()).format(it)
         text = formatted
     }
 }
@@ -37,5 +38,10 @@ fun TextView.setUserInfo(
         age,
         weight?.let { "$it kg" }
     ).joinToString(" | ")
-
 }
+
+@BindingAdapter("goneUnless")
+fun View.goneUnless(visible: Boolean) {
+    this.visibility = if (visible) View.VISIBLE else View.GONE
+}
+

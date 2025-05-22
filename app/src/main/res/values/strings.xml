@@ -9,5 +9,7 @@
 
     <string name="registered_users">Registered Users</string>
     <string name="img_description">this is an imageView</string>
+    <string name="please_check_back_later">Please check back later.</string>
+    <string name="no_data">No Data</string>
 
 </resources>
