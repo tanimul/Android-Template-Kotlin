@@ -16,4 +16,13 @@
     <color name="colorTextDark">#242424</color>
     <color name="colorTextLight">#616161</color>
 
+    <color name="color_dddddd">#DDDDDD</color>
+    <color name="color_707070">#707070</color>
+    <color name="color_00000000">#00000000</color>
+    <color name="color_e7eef8">#E7EEF8</color>
+    <color name="_808080">#808080</color>
+    <color name="_e4e4e4">#e4e4e4</color>
+    <color name="_b4b4b4">#B4B4B4</color>
+    <color name="_F0F0F0">#F0F0F0</color>
+
 </resources>

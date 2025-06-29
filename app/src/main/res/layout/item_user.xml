@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.tanimul.android_template_kotlin.features.users.domain.model.User" />
+
+        <variable
+            name="viewModel"
+            type="com.tanimul.android_template_kotlin.features.users.presentation.UsersViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/view_root"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="@drawable/ripple_white"
+        android:onClick="@{()-> viewModel.selectedUser(user)}">
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_regular"
+            android:includeFontPadding="false"
+            android:text="@{user.email}"
+            android:textColor="@color/color_707070"
+            android:textSize="@dimen/text_size_10sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="tanimulislam.fuad@gmail.com" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_user"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:civ_border_color="@color/color_00000000"
+            app:imageUrl="@{user.image}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_email"
+            app:userName="@{user.firstName}"
+            tools:src="@drawable/ic_user" />
+
+        <TextView
+            android:id="@+id/tv_fullName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/poppins_bold"
+            android:includeFontPadding="false"
+            android:maxLines="2"
+            android:text="@{user.firstName +` `+user.maidenName+` `+user.lastName}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_14sp"
+            app:layout_constraintEnd_toStartOf="@id/iv_rightArrow"
+            app:layout_constraintStart_toEndOf="@id/iv_user"
+            app:layout_constraintTop_toTopOf="@id/iv_user"
+            tools:text="User Name" />
+
+        <TextView
+            android:id="@+id/tv_userInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="4dp"
+            android:fontFamily="@font/poppins_regular"
+            android:includeFontPadding="false"
+            android:paddingTop="2dp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_12sp"
+            app:age="@{user.age}"
+            app:gender="@{user.gender}"
+            app:layout_constraintEnd_toStartOf="@id/iv_rightArrow"
+            app:layout_constraintStart_toEndOf="@id/iv_user"
+            app:layout_constraintTop_toBottomOf="@id/tv_fullName"
+            app:weight="@{user.weight}"
+            tools:text="User Info" />
+
+        <ImageView
+            android:id="@+id/iv_rightArrow"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="@string/img_description"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_right_arrow_ash"
+            app:tint="@color/color_707070" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/color_e7eef8"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_user" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

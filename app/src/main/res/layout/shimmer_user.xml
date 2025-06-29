@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingHorizontal="16dp"
+        tools:ignore="RtlSymmetry">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/mid_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.40" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.90" />
+
+        <View
+            android:id="@+id/shimmerFrameLayout"
+            android:layout_width="0dp"
+            android:layout_height="12dp"
+            android:background="@drawable/bg_background_r8"
+            android:backgroundTint="@color/_e4e4e4"
+            app:layout_constraintEnd_toStartOf="@id/mid_guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/shimmerFrameLayout" />
+
+        <View
+            android:id="@+id/shimmerFrameLayout2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/ic_solid_circle"
+            android:backgroundTint="@color/_b4b4b4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shimmerFrameLayout" />
+
+        <View
+            android:id="@+id/shimmerFrameLayout3"
+            android:layout_width="0dp"
+            android:layout_height="12dp"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/bg_background_r8"
+            android:backgroundTint="@color/_b4b4b4"
+            app:layout_constraintEnd_toStartOf="@id/end_guideline"
+            app:layout_constraintStart_toEndOf="@id/shimmerFrameLayout2"
+            app:layout_constraintTop_toTopOf="@+id/shimmerFrameLayout2" />
+
+        <View
+            android:id="@+id/shimmerFrameLayout4"
+            android:layout_width="0dp"
+            android:layout_height="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/bg_background_r8"
+            android:backgroundTint="@color/_e4e4e4"
+            app:layout_constraintEnd_toStartOf="@id/end_guideline"
+            app:layout_constraintStart_toEndOf="@id/shimmerFrameLayout2"
+            app:layout_constraintTop_toBottomOf="@id/shimmerFrameLayout3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
