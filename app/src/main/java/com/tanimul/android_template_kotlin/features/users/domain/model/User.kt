@@ -1,11 +1,14 @@
 package com.tanimul.android_template_kotlin.features.users.domain.model
 
 import androidx.annotation.Keep
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 @Keep
+@Entity(tableName = "users")
 data class User(
-    @SerializedName("id") var id: Int? = null,
+    @PrimaryKey @SerializedName("id") var id: Int? = null,
     @SerializedName("firstName") var firstName: String? = null,
     @SerializedName("lastName") var lastName: String? = null,
     @SerializedName("maidenName") var maidenName: String? = null,

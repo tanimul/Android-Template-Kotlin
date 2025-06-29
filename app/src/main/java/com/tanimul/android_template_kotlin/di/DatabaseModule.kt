@@ -2,8 +2,8 @@ package com.tanimul.android_template_kotlin.di
 
 import android.content.Context
 import androidx.room.Room
-import com.tanimul.android_template_kotlin.data.database.TemplateDatabase
-import com.tanimul.android_template_kotlin.data.database.UserDao
+import com.tanimul.android_template_kotlin.db.TemplateDatabase
+import com.tanimul.android_template_kotlin.db.dao.UserDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
